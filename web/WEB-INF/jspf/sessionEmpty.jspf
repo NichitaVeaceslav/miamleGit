@@ -1,0 +1,68 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<div id="info">
+    <br><br>
+</div>
+
+<div id="container">
+    <!-- Cover Box -->
+    <div id="cover">
+        <!-- Sign Up Section -->
+        <h1 class="sign-up">Bonjour</h1>
+        <p class="sign-up">Pas encore de compte ?<br></p>
+        <a class="button sign-up" href="#cover">S'inscrire</a>
+        <!-- Sign In Section -->
+        <h1 class="sign-in">Bienvenue sur notre Miamle</h1>
+        <p class="sign-in">Vous avez déja un compte ?<br></p>
+        <br>
+        <a class="button sub sign-in" href="#">Se connecter</a>
+    </div> 
+
+    <!-- Login Box -->
+    <div id="login">
+        <h1>Se connecter</h1>
+        <form action="<c:url value="/connect"/>" method="post">
+            <label for="email"><span class="required"></span></label>
+            <input type="email" placeholder="Email *" autocomplete="off" id="email" name="email" value="<c:out value="${requestScope.user.email}"/>"><br>
+            <span class="error">${requestScope.errors.email}</span>
+
+            <label for="pwd"><span class="required"></span></label>
+            <input type="password" placeholder="Mot de passe *" autocomplete="off" id="pwd" name="pwd"><br>
+            <span class="error">${requestScope.errors.pwd}</span>
+
+            <a id="forgot-pass" href="#">Mots de passe oublier</a><br>
+            <input class="submit-btn" type="submit" value="Se connecter">
+
+        </form>
+    </div>
+    <!-- Register Box -->
+    <div id="register">
+        <h1>Crée un compte</h1>
+
+        <form action="<c:url value="/register"/>" method="post">
+
+            <label for="name"></label>
+            <input type="text" placeholder="Nom ou pseudo *" autocomplete="off" id="pseudo" name="pseudo" value="<c:out value="${requestScope.user.pseudo}"/>"><br>
+            <span class="error">${requestScope.errors.pseudo}</span>
+
+
+            <label for="email"><span class="required"></span></label>
+            <input type="email" placeholder="Email *" autocomplete="off" id="email" name="email" value="<c:out value="${requestScope.user.email}"/>"><br>
+            <span class="error">${requestScope.errors.email}</span>
+
+            <label for="pwd"><span class="required"></span></label>
+            <input type="password" placeholder="Mot de passe *" autocomplete="off" id="pwd" name="pwd"><br>
+            <span class="error">${requestScope.errors.pwd}</span>
+
+            <label for="confirm"><span class="required"></span></label>
+            <input type="password" placeholder="Confirmation *" autocomplete="off" id="confirm" name="confirm"><br>
+            <span class="error">${requestScope.errors["confirm"]}</span>
+
+
+            <input class="submit-btn" type="submit" value="Sign Up">
+
+        </form>
+    </div> <!-- END Container -->
+    <!-- partial -->
+
+</div>

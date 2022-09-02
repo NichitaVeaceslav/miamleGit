@@ -1,0 +1,27 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<header class="header">
+    <a href="<c:url value="/"/>" class="logo">Miamle</a>
+    <a href= "<c:url value="/profile"/>" class="logo"> <c:out value= "${sessionScope.user.pseudo}"/></a>
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+    <ul class="menu">
+        <c:choose>
+            <c:when test="${empty sessionScope.user}">
+            </c:when>
+            <c:when test="${sessionScope.user.id == 1}">
+                <li><a href="<c:url value='/event'/>">Evenement</a></li>
+                <li><a href="<c:url value='/profile'/>">Profil</a></li>
+                <li><a href="<c:url value='/logout'/>">Déconnexion</a></li>
+                <li><a href="<c:url value='/admin'/>">Administration</a></li>
+                </c:when>
+                <c:otherwise>
+                <li><a href="<c:url value='/event'/>">Evenement</a></li>
+                <li><a href="<c:url value='/profile'/>">Profil</a></li>
+                <li><a href="<c:url value='/logout'/>">Déconnexion</a></li>
+                </c:otherwise>
+            </c:choose>
+    </ul>
+</header>
+<div class="alert">${requestScope.msg}</div>
+
+
